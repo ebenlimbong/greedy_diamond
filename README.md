@@ -2,6 +2,27 @@
 
 # 💎 Etimo Diamonds 2
 
+**Mode Switching (Implementasi Saat Ini):**  
+- **Efisiensi:** O(n) untuk setiap langkah, dengan overhead kecil untuk switching mode.  
+- **Efektivitas:** Menggabungkan kelebihan dari pendekatan *Nearest Diamond First* dan *Home-Centric*.  
+- **Skenario Terbaik:** Diamond tersebar dalam cluster-cluster, di mana bot dapat mengumpulkan beberapa diamond dalam satu perjalanan.  
+- **Skenario Terburuk:** Distribusi diamond yang sangat dinamis dan berubah cepat, menyebabkan switching mode yang terlalu sering.  
+
+Berdasarkan analisis di atas, strategi *Mode Switching* menawarkan keseimbangan terbaik antara efisiensi dan efektivitas untuk berbagai skenario permainan Diamonds.
+
+---
+
+## Penjelasan Singkat Algoritma Greedy 
+
+Algoritma Greedy yang diimplementasikan bertujuan untuk selalu memilih aksi terbaik pada setiap langkah berdasarkan informasi lokal saat itu. Dalam konteks permainan Diamonds:
+
+- Bot akan memilih diamond terdekat yang memberikan nilai tertinggi relatif terhadap biaya pergerakan.
+- Jika kondisi tertentu terpenuhi (misalnya: terlalu banyak diamond di area sekitar atau bot sudah membawa cukup banyak diamond), maka mode akan *switch* untuk kembali ke "home" dan menyimpan hasil.
+- Strategi ini mengutamakan **keputusan cepat dan efisien**, meskipun tidak selalu optimal secara global.
+- Pengambilan keputusan dilakukan secara **iteratif** di setiap langkah permainan dengan kompleksitas O(n), di mana n adalah jumlah diamond yang terlihat.
+
+---
+
 Diamonds is a programming challenge. Program a bot and compete to get the highest score. For more information:
 
 -   [Project Specification](https://docs.google.com/document/d/13cbmMVXviyu8eKQ6heqgDzt4JNNMeAZO/edit)
@@ -12,8 +33,8 @@ Diamonds is a programming challenge. Program a bot and compete to get the highes
 1. Clone this repository and move to the root of this project's directory
 
     ```
-    git clone https://github.com/haziqam/tubes1-IF2110-bot-starter-pack.git
-    cd ./tubes1-IF2110-bot-starter-pack
+    git clone https://github.com/ebenlimbong/greedy_diamond
+    cd ./greedy_diamond
     ```
 
 2. Install dependencies
@@ -27,7 +48,7 @@ Diamonds is a programming challenge. Program a bot and compete to get the highes
 1. To run one bot
 
     ```
-    python main.py --logic Random --email=your_email@example.com --name=your_name --password=your_password --team etimo
+    python main.py --logic Greedy --email=your_email@example.com --name=PowerBot --password=your_password --team TrioBRE
     ```
 
 2. To run multiple bots simultaneously
@@ -49,12 +70,19 @@ Diamonds is a programming challenge. Program a bot and compete to get the highes
     ```
     chmod +x run-bots.sh
     ```
+    
 
 #### Note:
 
 -   If you run multiple bots, make sure each emails and names are unique
 -   The email could be anything as long as it follows a correct email syntax
 -   The name, and password could be anything without any space
+
+## Author ✍️
+
+- **Ebentua Philippus Limbong** – 123140086  
+- **Muhammad Bintang Alfasya**  – 123140098  
+- **Rifael Eurico Sitorus**     – 123140077  
 
 ## Credits 🪙
 
